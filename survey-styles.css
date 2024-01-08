@@ -157,3 +157,78 @@
 .option:hover {
     background-color: #F28F6B;
 }
+/* Date input form */
+.date_form {
+    text-align: center;
+}
+.date_form_text {
+    font-family: Poppins;
+    font-size: 2vw;
+    font-style: normal;
+    font-weight: normal;
+    padding: 2vw;
+    padding-left: 22.4vw;
+    padding-right: 22.4vw;
+    border: 0.1vw solid #000000 ; 
+    border-radius: 0.6vw;
+    display: block;
+}
+.submit_input_button {
+    display: none;
+    margin-top: 2vw;
+    background-color: rgb(251, 139, 74);
+	border-radius: 0.5vw;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.45vw;
+    color: rgba(1,24,43,1);
+    text-transform: capitalize;
+    padding: 0.5vw;
+    padding-left: 2vw;
+    padding-right: 2vw;
+}
+.submit_input_button:hover {
+    cursor: pointer;
+    background-color: rgb(255, 145, 0);
+}
+/* show submit button when form complete */
+.date_form input[type="date"]:valid + .submit_input_button {
+    display: inline-block;
+}
+.number_form input[type='number']:valid + .submit_input_button {
+    display: inline-block;
+}
+.number_form {
+    text-align: center;
+}
+.number_form_text {
+    font-family: Poppins;
+    font-size: 2vw;
+    font-style: normal;
+    font-weight: normal;
+    padding: 2vw;
+    border: 0.1vw solid #000000 ; 
+    border-radius: 0.6vw;
+    padding-left: 28vw;
+    padding-right: 20vw;
+    width: 100%;
+    position: relative;
+}
+/* Show submit button when form complete */
+.number-wrapper {
+    display: flex;
+}
+.euro-sign {
+    font-family: Poppins;
+    font-weight: normal;
+    font-size: 2vw;
+    position: absolute;
+    left: 26vw;
+    top: 2vw;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

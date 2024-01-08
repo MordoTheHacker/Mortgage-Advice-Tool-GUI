@@ -1,7 +1,9 @@
 // List of questions and options we ask the user to generate advice report
 const questions = [
     { 
-        question_id: 1,
+        question_id: 1, 
+		ask: "yes", 
+		question_type: "options",
         question: 'Which of the following situations apply to you?', 
         options: [
             'I want to buy a new house', 
@@ -21,121 +23,215 @@ const questions = [
         ]
     },
     { 
-        question_id: 2,
+        question_id: 2, 
+		ask: "yes", 
+		question_type: "dateInput",
+        question: 'Enter your date of birth:',
+    },
+    { 
+        question_id: 3, 
+		ask: "yes", 
+		question_type: "numberInput",
+        question: 'Enter your annual income:',
+    },
+    { 
+        question_id: 4, 
+		ask: "yes", 
+		question_type: "binary",
+        question: 'Do you want to take out a mortgage with your partner?', 
+        options: [
+            'Yes', 
+            'No', 
+        ],
+    },
+    { 
+        question_id: 5, 
+		ask: "yes", 
+		question_type: "dateInput",
+        question: 'Enter your partners date of birth:',
+    },
+    { 
+        question_id: 6, 
+		ask: "yes", 
+		question_type: "numberInput",
+        question: 'Enter your partners annual income:',
+    },
+    { 
+        question_id: 7, 
+		ask: "yes", 
+		question_type: "options",
         question: 'Who will be or is the owner of the house?', 
         options: [
             'Me', 
             'My partner', 
             'Me and my partner', 
-        ] 
+        ],
+        option_values: [
+            "partner1",
+            "partner2",
+            "both"
+        ]
     },
     { 
-        question_id: 3,
+        question_id: 8, 
+		ask: "yes", 
+		question_type: "options",
         question: 'Which income do you want to include in calculating the responsible mortgage amount?', 
         options: [
             'Only my income', 
             'Only the income of my partner', 
             'Both mine and my partner\'s income', 
-        ] 
+        ],
+        option_values: [
+            "partner1",
+            "partner2",
+            "both"
+        ]
     },
     { 
-        question_id: 4,
+        question_id: 9, 
+		ask: "yes", 
+		question_type: "options",
         question: 'Mortgage expenses may vary during the loan term. What would you prefer?', 
         options: [
             'Increasing net mortgage expenses: prefer to start with low initial costs', 
             'Decreasing net mortgage expenses: prefer starting with high initial costs',
             'Stable net mortgage throughout the loan term', 
-        ] 
+        ] ,
+        option_values: [
+            "lowInitialCostIncreasingExpenses",
+            "highInitialCostDecreasingExpenses",
+            "stableNetMortgageExpenses"
+        ]
     },
     { 
-        question_id: 5,
+        question_id: 10, 
+		ask: "yes", 
+		question_type: "binary",
         question: 'Do you want the validity period of your quote to be longer than 3 months?', 
         options: [
             'Yes',
             'No'
-        ] 
+        ],
+        yes_value: "extendedQuoteValidity",
     },
     { 
-        question_id: 6,
+        question_id: 11, 
+		ask: "yes", 
+		question_type: "options",
         question: 'If the mortgage intrest rate decreases after signing the quote do you still want to benefit from the lower rate?', 
         options: [
             'Yes', 
             'No', 
-        ] 
+        ],
+        yes_value: "postSigningRateDecreaseBenefit",
     },
     { 
-        question_id: 7,
+        question_id: 12, 
+		ask: "yes", 
+		question_type: "options",
         question: 'Do you want to be able to cancel the mortgege quote free of charge even after signing it?', 
         options: [
             'Yes', 
             'No', 
-        ] 
+        ],
+        yes_value: "noChargeQuoteCancellation",
     },
     { 
-        question_id: 8,
+        question_id: 13, 
+		ask: "yes", 
+		question_type: "options",
         question: 'Do you want to be able to make penalty-free repayments of more than 10% per year?', 
         options: [
             'Yes',
             'No'
-        ] 
+        ],
+        yes_value: "penaltyFreeRepaymentOver10Percent",
     },
     { 
-        question_id: 9,
+        question_id: 14, 
+		ask: "yes", 
+		question_type: "options",
         question: 'Do you want to have the option to transfer the mortgage interest to a future property?', 
         options: [
             'Yes',
             'No'
-        ] 
+        ],
+        yes_value: "mortgageInterestTransferability",
     },
     { 
-        question_id: 10,
+        question_id: 15, 
+		ask: "yes",
+        question_type: "options",
         question: 'Do you want a mortgage that automatically lowers interest rate when making extra repayments?', 
         options: [
             'Yes',
             'No'
-        ] 
+        ],
+        yes_value: "automaticRateReductionOnRepayment", 
     },
     { 
-        question_id: 11,
+        question_id: 16, 
+		ask: "yes",
+        question_type: "options",
         question: 'What is your objective in case your partner passes away during the mortgage term?', 
         options: [
             'I want to continue living in the property without mortgage expenses', 
             'I want to continue living in the property', 
             'I will sell the property', 
-        ] 
+        ],
+        option_values: [
+            "liveWithoutMortgageExpenses",
+            "continueLivingInProperty",
+            "propertySale"
+        ]
     },
     { 
-        question_id: 12,
+        question_id: 17, 
+		ask: "yes",
+        question_type: "options",
         question: 'What is your objective in case you or your partner become disabled during the mortgage term?', 
         options: [
             'I want to continue living in the property', 
-            'I will sell the property', 
-            'Already have dissability'
-        ] 
+            'I will sell the property'
+        ],
+        option_values: [
+            "continueLivingInProperty",
+            "propertySale"
+        ]
     },
     { 
-        question_id: 13,
+        question_id: 18, 
+		ask: "yes",
+        question_type: "options",
         question: 'What is your objective in case you or your partner become unenemployed during the mortgage term?', 
         options: [
             'I want to continue living in the property', 
             'I will sell the property', 
-            'Already unemployed'
+        ],
+        option_values: [
+            "continueLivingInProperty", 
+            "propertySale"
         ] 
     },
     { 
-        question_id: 14,
+        question_id: 19, 
+		ask: "yes",
+        question_type: "options",
         question: 'What is your objective when you or your partner retire?', 
         options: [
             'I want to continue living in the property', 
             'I will sell the property', 
-            'Already retired',
-            'Alleen mijn inkomen',
-            'Alleen het inkomen van mijn partner',
-            'Zowel het inkomen van mijn partner als van mij'
+        ],
+        option_values: [
+            "continueLivingInProperty", 
+            "propertySale"
         ] 
     },
     { 
-        question_id: 15,
+        question_id: 20, 
+		ask: "yes",
+        question_type: "options",
         question: 'What is your experience with mortgages?', 
         options: [
             'I have a mortgage and know well what obligations I have entered into', 
@@ -143,64 +239,91 @@ const questions = [
             'I have had a mortgage in the past but not anymore', 
             'I have no experience with taking out a mortgage', 
             'I deal with mortgages in my work', 
-        ] 
+        ],
+        option_values: [
+            "fullCurrentExperiance",
+            "noCurrentExperiance",
+            "pastExperiance",
+            "noExperiance",
+            "workRelatedExpereiance"
+        ]
     },
     { 
-        question_id: 16,
+        question_id: 21, 
+		ask: "yes",
+        question_type: "options",
         question: 'How familiar are you with an Interest-Only type of loan?', 
         options: [
-            'Not familiar', 
-            'Limitedly familiar', 
             'Fully familiar', 
-        ] 
+            'Limitedly familiar', 
+            'Not familiar', 
+        ],
+        yes_value: "intrestOnlyLoan", 
     },
     { 
-        question_id: 17,
+        question_id: 22, 
+		ask: "yes",
+        question_type: "options",
         question: 'How familiar are you with an Annuity loan?', 
         options: [
-            'Not familiar', 
+            'Fully familiar',  
             'Limitedly familiar', 
-            'Fully familiar', 
-        ] 
+            'Not familiar',  
+        ],
+        yes_value: "annuityLoan", 
     },
     { 
-        question_id: 18,
-        question: 'How familiar are you with a Bank svaings type of loan?', 
+        question_id: 23, 
+		ask: "yes",
+        question_type: "options",
+        question: 'How familiar are you with a Bank Savings type of loan?', 
         options: [
-            'Not familiar', 
+            'Fully familiar',   
             'Limitedly familiar', 
-            'Fully familiar', 
-        ] 
+            'Not familiar', 
+        ],
+        yes_value: "bankSavingsLoan",  
     },
     { 
-        question_id: 19,
+        question_id: 24, 
+		ask: "yes",
+        question_type: "options",
         question: 'How familiar are you with an Invesments type of loan?', 
         options: [
-            'Not familiar', 
-            'Limitedly familiar', 
             'Fully familiar', 
-        ] 
+            'Limitedly familiar', 
+            'Not familiar', 
+        ],
+        yes_value: "investmentsLoan", 
     },
     { 
-        question_id: 20,
+        question_id: 25, 
+		ask: "yes",
+        question_type: "options",
         question: 'How familiar are you with an Life type of loan?', 
         options: [
-            'Not familiar', 
+            'Fully familiar',
             'Limitedly familiar', 
-            'Fully familiar', 
-        ] 
+            'Not familiar', 
+        ],
+        yes_value: "lifeLoan", 
     },
     { 
-        question_id: 21,
+        question_id: 26, 
+		ask: "yes",
+        question_type: "options",
         question: 'How familiar are you with a Linear loan?', 
         options: [
-            'Not familiar', 
+            'Fully familiar',
             'Limitedly familiar', 
-            'Fully familiar', 
-        ] 
+            'Not familiar', 
+        ],
+        yes_value: "linearLoan", 
     },
     { 
-        question_id: 1,
+        question_id: 1, 
+		ask: "yes", 
+		question_type: "options",
         question: 'Which of the following situations apply to you?', 
         options: [
             'I want to buy a new house', 
@@ -212,7 +335,9 @@ const questions = [
         ] 
     },
     { 
-        question_id: 1,
+        question_id: 1, 
+		ask: "yes", 
+		question_type: "options",
         question: 'Which of the following situations apply to you?', 
         options: [
             'I want to buy a new house', 
@@ -224,7 +349,9 @@ const questions = [
         ] 
     },
     { 
-        question_id: 1,
+        question_id: 1, 
+		ask: "yes", 
+		question_type: "options",
         question: 'Which of the following situations apply to you?', 
         options: [
             'I want to buy a new house', 
