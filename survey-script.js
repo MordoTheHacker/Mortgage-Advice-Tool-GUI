@@ -22,7 +22,13 @@ const userResponses = {
         full_familiarity_with_mortgage_types: [],
         limited_familiarity_with_mortgage_types: [],
     },
-    financial_position: {},
+    financial_position: {
+        income_sufficient_for_lifestyle: null,
+        expect_income_develop: null,
+        max_amount_net_mortgage_costs: null,
+        saving_goals: [],
+        saving_contribution: null,
+    },
     risk_appetite: {},
 };
 
@@ -212,6 +218,7 @@ function displayNumberInput(){
 }
 
 // Handles user input on question basis
+// CAN BE IMPROVED AND MADE MORE CONSISE
 function storeInformation(value){
     const current_question = questions[question_index];
     const id = current_question.question_id;
@@ -291,22 +298,47 @@ function storeInformation(value){
         case(24):
         case(25):
         case(26):
-        if(value == 0){
-            userResponses.knowledge_experience.full_familiarity_with_mortgage_types.push(current_question.yes_value);
-        } else if(value == 1){
-            userResponses.knowledge_experience.limited_familiarity_with_mortgage_types.push(current_question.yes_value);
-        } else {
-            var indexToRemove = userResponses.knowledge_experience.full_familiarity_with_mortgage_types.indexOf(current_question.yes_value);
-            if (indexToRemove !== -1) {
-                userResponses.knowledge_experience.full_familiarity_with_mortgage_types.splice(indexToRemove, 1);
-              }
-            indexToRemove = userResponses.knowledge_experience.limited_familiarity_with_mortgage_types.indexOf(current_question.yes_value);
-            if (indexToRemove !== -1) {
-                userResponses.knowledge_experience.limited_familiarity_with_mortgage_types.splice(indexToRemove, 1);
+            if(value == 0){
+                userResponses.knowledge_experience.full_familiarity_with_mortgage_types.push(current_question.yes_value);
+            } else if(value == 1){
+                userResponses.knowledge_experience.limited_familiarity_with_mortgage_types.push(current_question.yes_value);
+            } else {
+                var indexToRemove = userResponses.knowledge_experience.full_familiarity_with_mortgage_types.indexOf(current_question.yes_value);
+                if (indexToRemove !== -1) {
+                    userResponses.knowledge_experience.full_familiarity_with_mortgage_types.splice(indexToRemove, 1);
+                }
+                indexToRemove = userResponses.knowledge_experience.limited_familiarity_with_mortgage_types.indexOf(current_question.yes_value);
+                if (indexToRemove !== -1) {
+                    userResponses.knowledge_experience.limited_familiarity_with_mortgage_types.splice(indexToRemove, 1);
+                }
             }
-        }
-        break;
-            
+            break;
+        case(27): 
+            userResponses.financial_position.income_sufficient_for_lifestyle = current_question.option_values[value];
+            break;
+        case(28):
+            userResponses.financial_position.expect_income_develop = current_question.option_values[value];
+            break;
+        case(29):
+            userResponses.financial_position.max_amount_net_mortgage_costs = parseFloat(value);
+            break;
+        case(30):
+        case(31):
+        case(32):
+        case(33):
+        case(34):
+            if(value == 0){
+                userResponses.financial_position.saving_goals.push(current_question.yes_value);
+            } else {
+                const indexToRemove = userResponses.financial_position.saving_goals.indexOf(current_question.yes_value);
+                if (indexToRemove !== -1) {
+                    userResponses.financial_position.saving_goals.splice(indexToRemove, 1);
+                }
+            }
+            break;
+        case(35):
+            userResponses.financial_position.saving_contribution = parseFloat(value);
+            break;
     }
     updateUI(question_index + 1, false);
 }

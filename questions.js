@@ -321,46 +321,107 @@ const questions = [
         yes_value: "linearLoan", 
     },
     { 
-        question_id: 1, 
-		ask: "yes", 
-		question_type: "options",
-        question: 'Which of the following situations apply to you?', 
+        question_id: 27, 
+		ask: "yes",
+        question_type: "options",
+        question: 'To what extent is your current income sufficient for your lifestyle?', 
         options: [
-            'I want to buy a new house', 
-            'I want to renovate my house', 
-            'I want to refinance my mortgage', 
-            'I want to evaluate my current situation', 
-            'I want to buy a new house that needs renovating', 
-            'My partner and I are seperating and I want to continue living in my current house'
+            'My income is more than enough - I can save a large amount',
+            'My income is sufficient - I can have limited savings', 
+            'My income is just enough - I cannot save any money',
+            'My income is inadequate - I am losing money' 
+        ],
+        option_values: [
+            "largeIncome",
+            "goodIncome",
+            "zeroSavings",
+            "insufficientIncome"
         ] 
     },
     { 
-        question_id: 1, 
-		ask: "yes", 
-		question_type: "options",
-        question: 'Which of the following situations apply to you?', 
+        question_id: 28, 
+		ask: "yes",
+        question_type: "options",
+        question: 'How do you expect your income to develop in the following years?', 
         options: [
-            'I want to buy a new house', 
-            'I want to renovate my house', 
-            'I want to refinance my mortgage', 
-            'I want to evaluate my current situation', 
-            'I want to buy a new house that needs renovating', 
-            'My partner and I are seperating and I want to continue living in my current house'
+            'My income will slightly increase',
+            'My income will significantly increase', 
+            'My income will decrease',
+            'My income will remain the same' 
+        ],
+        option_values: [
+            "slightIncrease",
+            "significantIncrease",
+            "decrease",
+            "noChange",
         ] 
     },
     { 
-        question_id: 1, 
+        question_id: 29, 
 		ask: "yes", 
-		question_type: "options",
-        question: 'Which of the following situations apply to you?', 
+		question_type: "numberInput",
+        question: 'What is the maximum monthly net mortgage cost you are willing to pay?',
+    },
+    { 
+        question_id: 30, 
+		ask: "yes",
+        question_type: "options",
+        question: 'Do you have a savings goal for a significant rainy-day fund? (at least 6 times the size of the mortgage)', 
         options: [
-            'I want to buy a new house', 
-            'I want to renovate my house', 
-            'I want to refinance my mortgage', 
-            'I want to evaluate my current situation', 
-            'I want to buy a new house that needs renovating', 
-            'My partner and I are seperating and I want to continue living in my current house'
-        ] 
+            'Yes',
+            'No'
+        ],
+        yes_value: "buffer", 
+    },
+    { 
+        question_id: 31, 
+		ask: "yes",
+        question_type: "options",
+        question: 'Do you have a savings goal for vacations and travel?', 
+        options: [
+            'Yes',
+            'No'
+        ],
+        yes_value: "vacationsTravel", 
+    },
+    { 
+        question_id: 32, 
+		ask: "yes",
+        question_type: "options",
+        question: 'Do you have a savings goal for home maintenance and significant renovations?', 
+        options: [
+            'Yes',
+            'No'
+        ],
+        yes_value: "renovation", 
+    },
+    { 
+        question_id: 33, 
+		ask: "yes",
+        question_type: "options",
+        question: 'Do you have a savings goal for retirement supplementation?', 
+        options: [
+            'Yes',
+            'No'
+        ],
+        yes_value: "retirement", 
+    },
+    { 
+        question_id: 34, 
+		ask: "yes",
+        question_type: "options",
+        question: 'Do you have a savings goal for other consumer purchases such as a car?', 
+        options: [
+            'Yes',
+            'No'
+        ],
+        yes_value: "largePurchases", 
+    },
+    { 
+        question_id: 35, 
+		ask: "yes", 
+		question_type: "numberInput",
+        question: 'What is the amount you are willing to contribute from your current savings as a downpayment to your mortgage?',
     },
 ];
   

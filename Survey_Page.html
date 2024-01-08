@@ -20,6 +20,8 @@
 
 if (window.console==null) { window["console"] = { log : function() {} } }; // some browsers do not set console
 
+window.history.replaceState({}, document.title, "/questions");
+
 var Application = function() {
 	// event constants
 	this.prefix = "--web-";
