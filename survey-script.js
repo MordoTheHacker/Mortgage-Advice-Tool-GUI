@@ -396,7 +396,7 @@ function storeInformation(value){
         case(55):
             if(value == 0){
                 userResponses.risk_appetite.retirement_plan.push(current_question.yes_value);
-                for(let i = 55; i <= 60; i++){
+                for(let i = 55; i <= 59; i++){
                     questions[i].ask = "no";
                 }
             } else {
@@ -404,7 +404,7 @@ function storeInformation(value){
                 if (indexToRemove !== -1) {
                     userResponses.risk_appetite.retirement_plan.splice(indexToRemove, 1);
                 }
-                for(let i = 55; i <= 60; i++){
+                for(let i = 55; i <= 59; i++){
                     questions[i].ask = "yes";
                 }
             }
