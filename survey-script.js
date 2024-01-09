@@ -1,6 +1,6 @@
 import questions from './questions.js';
 
-var question_index = 50;
+var question_index = 35;
 const totalNrQuestions = questions.length;
 
 // Structure Schema to store user input
@@ -402,6 +402,7 @@ function storeInformation(value){
                 for(let i = 55; i <= 59; i++){
                     questions[i].ask = "no";
                 }
+                endSurvey();
             } else {
                 const indexToRemove = userResponses.risk_appetite.retirement_plan.indexOf(current_question.yes_value);
                 if (indexToRemove !== -1) {
@@ -427,7 +428,17 @@ function storeInformation(value){
             }
             break;
     }
+    if(id == 60){
+        endSurvey();
+    }
     updateUI(question_index + 1, false);
+}
+
+function endSurvey(){
+    // Store user inputs in localStorage
+    localStorage.setItem('userResponses', JSON.stringify(userResponses));
+    // Navigate to the results page
+    window.location.href = "Mortgage-Advice-Tool-GUI/report_page.html";
 }
 
 //add previous button
