@@ -29,7 +29,13 @@ const userResponses = {
         saving_goals: [],
         saving_contribution: null,
     },
-    risk_appetite: {},
+    risk_appetite: {
+        certainty_expenses_not_increase: null,
+        partner_pass_away_during_mortgage: [],
+        become_disabled_during_mortgage: [],
+        become_unemployed_during_mortgage: [],
+        retirement_plan: [],
+    },
 };
 
 // Function to control progress bar
@@ -338,6 +344,83 @@ function storeInformation(value){
             break;
         case(35):
             userResponses.financial_position.saving_contribution = parseFloat(value);
+            break;
+        case(36):
+            userResponses.risk_appetite.certainty_expenses_not_increase = current_question.option_values[value];
+            break;
+        case(37):
+        case(38):
+        case(39):
+        case(40):
+        case(41):
+        case(42):
+            if(value == 0){
+                userResponses.risk_appetite.partner_pass_away_during_mortgage.push(current_question.yes_value);
+            } else {
+                const indexToRemove = userResponses.risk_appetite.partner_pass_away_during_mortgage.indexOf(current_question.yes_value);
+                if (indexToRemove !== -1) {
+                    userResponses.risk_appetite.partner_pass_away_during_mortgage.splice(indexToRemove, 1);
+                }
+            }
+            break;
+        case(43):
+        case(44):
+        case(45):
+        case(46):
+        case(47):
+        case(48):
+            if(value == 0){
+                userResponses.risk_appetite.become_disabled_during_mortgage.push(current_question.yes_value);
+            } else {
+                const indexToRemove = userResponses.risk_appetite.become_disabled_during_mortgage.indexOf(current_question.yes_value);
+                if (indexToRemove !== -1) {
+                    userResponses.risk_appetite.become_disabled_during_mortgage.splice(indexToRemove, 1);
+                }
+            }
+            break;
+        case(49):
+        case(50):
+        case(51):
+        case(52):
+        case(53):
+        case(54):
+            if(value == 0){
+                userResponses.risk_appetite.become_unemployed_during_mortgage.push(current_question.yes_value);
+            } else {
+                const indexToRemove = userResponses.risk_appetite.become_unemployed_during_mortgage.indexOf(current_question.yes_value);
+                if (indexToRemove !== -1) {
+                    userResponses.risk_appetite.become_unemployed_during_mortgage.splice(indexToRemove, 1);
+                }
+            }
+            break;
+        case(55):
+            if(value == 0){
+                userResponses.risk_appetite.retirement_plan.push(current_question.yes_value);
+                for(let i = 55; i <= 60; i++){
+                    questions[i].ask = "no";
+                }
+            } else {
+                const indexToRemove = userResponses.risk_appetite.retirement_plan.indexOf(current_question.yes_value);
+                if (indexToRemove !== -1) {
+                    userResponses.risk_appetite.retirement_plan.splice(indexToRemove, 1);
+                }
+                for(let i = 55; i <= 60; i++){
+                    questions[i].ask = "yes";
+                }
+            }
+        case(56):
+        case(57):
+        case(58):
+        case(59):
+        case(60):
+            if(value == 0){
+                userResponses.risk_appetite.retirement_plan.push(current_question.yes_value);
+            } else {
+                const indexToRemove = userResponses.risk_appetite.retirement_plan.indexOf(current_question.yes_value);
+                if (indexToRemove !== -1) {
+                    userResponses.risk_appetite.retirement_plan.splice(indexToRemove, 1);
+                }
+            }
             break;
     }
     updateUI(question_index + 1, false);
