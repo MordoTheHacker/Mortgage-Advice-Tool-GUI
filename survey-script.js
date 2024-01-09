@@ -439,6 +439,10 @@ function endSurvey(){
     localStorage.setItem('userResponses', JSON.stringify(userResponses));
     // Navigate to the results page
     window.location.href = "Mortgage-Advice-Tool-GUI/report_page.html";
+    // Fill Progress Bar
+    const progressBar =
+            document.getElementsByClassName('progressive_bar')[0];
+    progressBar.style.setProperty('--width', 100);
 }
 
 //add previous button
