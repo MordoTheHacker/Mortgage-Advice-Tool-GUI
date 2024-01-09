@@ -1,6 +1,6 @@
 import questions from './questions.js';
 
-var question_index = 0;
+var question_index = 50;
 const totalNrQuestions = questions.length;
 
 // Structure Schema to store user input
@@ -397,6 +397,7 @@ function storeInformation(value){
             if(value == 0){
                 userResponses.risk_appetite.retirement_plan.push(current_question.yes_value);
                 for(let i = 55; i <= 59; i++){
+                    console.log(questions[i].ask);
                     questions[i].ask = "no";
                 }
             } else {
@@ -408,6 +409,7 @@ function storeInformation(value){
                     questions[i].ask = "yes";
                 }
             }
+            break;
         case(56):
         case(57):
         case(58):
