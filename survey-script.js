@@ -1,6 +1,6 @@
 import questions from './questions.js';
 
-var question_index = 35;
+var question_index = 0;
 const totalNrQuestions = questions.length;
 
 // Structure Schema to store user input
