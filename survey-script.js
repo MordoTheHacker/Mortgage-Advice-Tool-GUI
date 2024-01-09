@@ -242,6 +242,9 @@ function storeInformation(value){
         case(4):
             if(value == 1){
                 // no partner
+                userResponses.persons[1].birthdate = null;
+                userResponses.persons[1].income = null;
+                userResponses.objective.owner = null;
                 for(let i = 4; i <= 7; i++){
                     questions[i].ask = "no";
                     console.log("no");
@@ -397,7 +400,6 @@ function storeInformation(value){
             if(value == 0){
                 userResponses.risk_appetite.retirement_plan.push(current_question.yes_value);
                 for(let i = 55; i <= 59; i++){
-                    console.log(questions[i].ask);
                     questions[i].ask = "no";
                 }
             } else {
