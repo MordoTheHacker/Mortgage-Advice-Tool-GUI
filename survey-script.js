@@ -19,14 +19,7 @@ const userResponses = {
       },
     knowledge_experience: {
         general_mortgage_experience: null,
-        familiarity_with_mortgage_types: {
-            "interestOnlyLoan": null,
-            "annuityLoan": null,
-            "bankSavingsLoan": null,
-            "investmentsLoan": null,
-            "lifeLoan": null,
-            "linearLoan": null,
-        },
+        familiarity_with_mortgage_types: {},
     },
     financial_position: {
         income_sufficient_for_lifestyle: null,
