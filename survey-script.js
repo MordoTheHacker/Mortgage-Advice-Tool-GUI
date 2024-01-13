@@ -19,8 +19,14 @@ const userResponses = {
       },
     knowledge_experience: {
         general_mortgage_experience: null,
-        full_familiarity_with_mortgage_types: [],
-        limited_familiarity_with_mortgage_types: [],
+        familiarity_with_mortgage_types: {
+            "interestOnlyLoan": null,
+            "annuityLoan": null,
+            "bankSavingsLoan": null,
+            "investmentsLoan": null,
+            "lifeLoan": null,
+            "linearLoan": null,
+        },
     },
     financial_position: {
         income_sufficient_for_lifestyle: null,
@@ -307,21 +313,8 @@ function storeInformation(value){
         case(24):
         case(25):
         case(26):
-            if(value == 0){
-                userResponses.knowledge_experience.full_familiarity_with_mortgage_types.push(current_question.yes_value);
-            } else if(value == 1){
-                userResponses.knowledge_experience.limited_familiarity_with_mortgage_types.push(current_question.yes_value);
-            } else {
-                var indexToRemove = userResponses.knowledge_experience.full_familiarity_with_mortgage_types.indexOf(current_question.yes_value);
-                if (indexToRemove !== -1) {
-                    userResponses.knowledge_experience.full_familiarity_with_mortgage_types.splice(indexToRemove, 1);
-                }
-                indexToRemove = userResponses.knowledge_experience.limited_familiarity_with_mortgage_types.indexOf(current_question.yes_value);
-                if (indexToRemove !== -1) {
-                    userResponses.knowledge_experience.limited_familiarity_with_mortgage_types.splice(indexToRemove, 1);
-                }
-            }
-            break;
+            userResponses.knowledge_experience.familiarity_with_mortgage_types[current_question.answerPoint] = current_question.option_values[value];
+            console.log(userResponses.knowledge_experience.familiarity_with_mortgage_types);
         case(27): 
             userResponses.financial_position.income_sufficient_for_lifestyle = current_question.option_values[value];
             break;
