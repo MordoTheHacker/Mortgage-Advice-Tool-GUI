@@ -241,18 +241,27 @@ function storeInformation(value){
         case(4):
             if(value == 1){
                 // no partner
-                userResponses.persons[1].birthdate = null;
-                userResponses.persons[1].income = null;
-                userResponses.objective.owner = null;
-                for(let i = 4; i <= 7; i++){
-                    questions[i].ask = "no";
-                    console.log("no");
-                }
+                // Iterate through affected questions and dont show them
+                current_question.effect_show_question_id.forEach(questionId => {
+                    const affectedQuestion = questions.find(q => q.question_id === questionId);
+                    if (affectedQuestion) {
+                        // no show
+                        affectedQuestion.ask = "no";
+                        //set answers to null
+                        const path = affectedQuestion.answer_path;
+                        userResponses[path] = null;
+                    }
+                });
+
             } else {
                 //yes partner
-                for(let i = 4; i <= 7; i++){
-                    questions[i].ask = "yes";
-                }
+                // Iterate through affected questions and show them
+                current_question.effect_show_question_id.forEach(questionId => {
+                    const affectedQuestion = questions.find(q => q.question_id === questionId);
+                    if (affectedQuestion) {
+                        affectedQuestion.ask = "yes";
+                    }
+                });
             }
             break;
         case(5):
@@ -307,7 +316,6 @@ function storeInformation(value){
         case(25):
         case(26):
             userResponses.knowledge_experience.familiarity_with_mortgage_types[current_question.answerPoint] = current_question.option_values[value];
-            console.log(userResponses.knowledge_experience.familiarity_with_mortgage_types);
         case(27): 
             userResponses.financial_position.income_sufficient_for_lifestyle = current_question.option_values[value];
             break;

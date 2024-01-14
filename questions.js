@@ -40,18 +40,21 @@ const questions = [
     question_type: "binary",
     question: "Do you want to take out a mortgage with your partner?",
     options: ["Yes", "No"],
+    effect_show_question_id: [5, 6, 7, 8, 16, 17, 18]
   },
   {
     question_id: 5,
     ask: "yes",
     question_type: "dateInput",
     question: "Enter your partners date of birth:",
+    answer_path: "persons[1].birthdate"
   },
   {
     question_id: 6,
     ask: "yes",
     question_type: "numberInput",
     question: "Enter your partners annual income:",
+    answer_path: "persons[1].income"
   },
   {
     question_id: 7,
@@ -60,6 +63,7 @@ const questions = [
     question: "Who will be or is the owner of the house?",
     options: ["Me", "My partner", "Me and my partner"],
     option_values: ["partner1", "partner2", "both"],
+    answer_path: "objective.owner"
   },
   {
     question_id: 8,
@@ -73,6 +77,7 @@ const questions = [
       "Both mine and my partner's income",
     ],
     option_values: ["partner1", "partner2", "both"],
+    answer_path: "objective.incomeToInclude"
   },
   {
     question_id: 9,
@@ -161,6 +166,7 @@ const questions = [
       "continueLivingInProperty",
       "propertySale",
     ],
+    answer_path: "objective.partner_pass_away",
   },
   {
     question_id: 17,
@@ -173,6 +179,7 @@ const questions = [
       "I will sell the property",
     ],
     option_values: ["continueLivingInProperty", "propertySale"],
+    answer_path: "objective.partner_disabled",
   },
   {
     question_id: 18,
@@ -185,6 +192,7 @@ const questions = [
       "I will sell the property",
     ],
     option_values: ["continueLivingInProperty", "propertySale"],
+    answer_path: "objective.objective_unemployed_partner",
   },
   {
     question_id: 19,
