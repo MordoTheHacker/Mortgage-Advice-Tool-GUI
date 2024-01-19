@@ -515,7 +515,7 @@ function endSurvey(){
     // Store user inputs in localStorage
     localStorage.setItem('userResponses', JSON.stringify(userResponses));
     // Navigate to the results page
-    window.location.href = "Mortgage-Advice-Tool-GUI/report_page.html";
+    window.location.href = "report_page.html";
     // Fill Progress Bar
     const progressBar =
             document.getElementsByClassName('progressive_bar')[0];
