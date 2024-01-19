@@ -1,0 +1,7 @@
+{
+    "recommended_mortgage_type": {
+        "annuityLoan": "You want a loan with increasing net expenses. Based on that, we recommend an annuity loan.",
+        "linearLoan": "You want a loan with decreasing expenses. Based on that, we recommend a linear loan.",
+        "interestOnlyLoan": "You want stable net mortgage expenses. Based on that, we recommend an interest-only loan."
+    }
+}

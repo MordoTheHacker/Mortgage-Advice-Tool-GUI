@@ -1,0 +1,84 @@
+{
+    "type": "object",
+    "definitions": {
+        "condition": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["path"],
+            "properties": {
+                "path": { "type": "string" },
+                "value": {
+                    "oneOf": [{ "type": "string" }, { "type": "number" }]
+                },
+                "operator": {
+                    "type": "string",
+                    "enum": [
+                        "==",
+                        "!=",
+                        ">",
+                        "<",
+                        ">=",
+                        "<=",
+                        "exists",
+                        "not exists"
+                    ]
+                }
+            }
+        },
+        "action": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["path", "value"],
+            "properties": {
+                "path": { "type": "string" },
+                "value": {
+                    "oneOf": [{ "type": "string" }, { "type": "number" }]
+                },
+                "operator": {
+                    "type": "string",
+                    "enum": ["=", "+", "-", "*", "/"]
+                }
+            }
+        }
+    },
+    "additionalProperties": false,
+    "properties": {
+        "rules": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "if": {
+                        "oneOf": [
+                            {
+                                "type": "array",
+                                "items": { "$ref": "#/definitions/condition" }
+                            },
+                            { "$ref": "#/definitions/condition" }
+                        ]
+                    },
+                    "then": {
+                        "oneOf": [
+                            {
+                                "type": "array",
+                                "items": { "$ref": "#/definitions/action" }
+                            },
+                            { "$ref": "#/definitions/action" }
+                        ]
+                    },
+                    "else": {
+                        "oneOf": [
+                            {
+                                "type": "array",
+                                "items": { "$ref": "#/definitions/action" }
+                            },
+                            { "$ref": "#/definitions/action" }
+                        ]
+                    }
+                },
+                "required": ["if", "then"]
+            }
+        }
+    }
+}

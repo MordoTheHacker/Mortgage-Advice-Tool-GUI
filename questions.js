@@ -4,6 +4,7 @@ const questions = [
     question_id: 1,
     ask: "yes",
     question_type: "options",
+    subcategory: "situation",
     question: "Which of the following situations apply to you?",
     options: [
       "I want to buy a new house",
@@ -26,26 +27,31 @@ const questions = [
     question_id: 2,
     ask: "yes",
     question_type: "dateInput",
+    subcategory: "birthdate",
     question: "Enter your date of birth:",
+    answer_path: "persons[0].birthdate"
   },
   {
     question_id: 3,
     ask: "yes",
     question_type: "numberInput",
+    subcategory: "income",
     question: "Enter your annual income:",
+    answer_path: "persons[0].income"
   },
   {
     question_id: 4,
     ask: "yes",
     question_type: "binary",
+    subcategory: "hasPartner",
     question: "Do you want to take out a mortgage with your partner?",
     options: ["Yes", "No"],
-    effect_show_question_id: [5, 6, 7, 8, 16, 17, 18]
   },
   {
     question_id: 5,
     ask: "yes",
     question_type: "dateInput",
+    subcategory: "partnerBirthdate",
     question: "Enter your partners date of birth:",
     answer_path: "persons[1].birthdate"
   },
@@ -53,6 +59,7 @@ const questions = [
     question_id: 6,
     ask: "yes",
     question_type: "numberInput",
+    subcategory: "partnerIncome",
     question: "Enter your partners annual income:",
     answer_path: "persons[1].income"
   },
@@ -60,15 +67,16 @@ const questions = [
     question_id: 7,
     ask: "yes",
     question_type: "options",
+		subcategory: "owner",
     question: "Who will be or is the owner of the house?",
     options: ["Me", "My partner", "Me and my partner"],
     option_values: ["partner1", "partner2", "both"],
-    answer_path: "objective.owner"
   },
   {
     question_id: 8,
     ask: "yes",
     question_type: "options",
+		subcategory: "income_to_include",
     question:
       "Which income do you want to include in calculating the responsible mortgage amount?",
     options: [
@@ -77,12 +85,12 @@ const questions = [
       "Both mine and my partner's income",
     ],
     option_values: ["partner1", "partner2", "both"],
-    answer_path: "objective.incomeToInclude"
   },
   {
     question_id: 9,
     ask: "yes",
     question_type: "options",
+		subcategory: "change_mortgage_preference",
     question:
       "Mortgage expenses may vary during the loan term. What would you prefer?",
     options: [
@@ -100,6 +108,7 @@ const questions = [
     question_id: 10,
     ask: "yes",
     question_type: "binary",
+		subcategory: "mortgage_important_features",
     question:
       "Do you want the validity period of your quote to be longer than 3 months?",
     options: ["Yes", "No"],
@@ -109,6 +118,7 @@ const questions = [
     question_id: 11,
     ask: "yes",
     question_type: "options",
+		subcategory: "mortgage_important_features",
     question:
       "If the mortgage intrest rate decreases after signing the quote do you still want to benefit from the lower rate?",
     options: ["Yes", "No"],
@@ -118,6 +128,7 @@ const questions = [
     question_id: 12,
     ask: "yes",
     question_type: "options",
+		subcategory: "mortgage_important_features",
     question:
       "Do you want to be able to cancel the mortgege quote free of charge even after signing it?",
     options: ["Yes", "No"],
@@ -127,6 +138,7 @@ const questions = [
     question_id: 13,
     ask: "yes",
     question_type: "options",
+		subcategory: "mortgage_important_features",
     question:
       "Do you want to be able to make penalty-free repayments of more than 10% per year?",
     options: ["Yes", "No"],
@@ -136,6 +148,7 @@ const questions = [
     question_id: 14,
     ask: "yes",
     question_type: "options",
+		subcategory: "mortgage_important_featurese",
     question:
       "Do you want to have the option to transfer the mortgage interest to a future property?",
     options: ["Yes", "No"],
@@ -145,6 +158,7 @@ const questions = [
     question_id: 15,
     ask: "yes",
     question_type: "options",
+		subcategory: "mortgage_important_features",
     question:
       "Do you want a mortgage that automatically lowers interest rate when making extra repayments?",
     options: ["Yes", "No"],
@@ -154,6 +168,7 @@ const questions = [
     question_id: 16,
     ask: "yes",
     question_type: "options",
+		subcategory: "partner_pass_away",
     question:
       "What is your objective in case your partner passes away during the mortgage term?",
     options: [
@@ -166,12 +181,12 @@ const questions = [
       "continueLivingInProperty",
       "propertySale",
     ],
-    answer_path: "objective.partner_pass_away",
   },
   {
     question_id: 17,
     ask: "yes",
     question_type: "options",
+		subcategory: "partner_disabled",
     question:
       "What is your objective in case you or your partner become disabled during the mortgage term?",
     options: [
@@ -179,12 +194,12 @@ const questions = [
       "I will sell the property",
     ],
     option_values: ["continueLivingInProperty", "propertySale"],
-    answer_path: "objective.partner_disabled",
   },
   {
     question_id: 18,
     ask: "yes",
     question_type: "options",
+		subcategory: "objective_unemployed_partner",
     question:
       "What is your objective in case you or your partner become unenemployed during the mortgage term?",
     options: [
@@ -192,12 +207,12 @@ const questions = [
       "I will sell the property",
     ],
     option_values: ["continueLivingInProperty", "propertySale"],
-    answer_path: "objective.objective_unemployed_partner",
   },
   {
     question_id: 19,
     ask: "yes",
     question_type: "options",
+		subcategory: "objective_retired",
     question: "What is your objective when you or your partner retire?",
     options: [
       "I want to continue living in the property",
@@ -209,6 +224,7 @@ const questions = [
     question_id: 20,
     ask: "yes",
     question_type: "options",
+		subcategory: "general_mortgage_experience",
     question: "What is your experience with mortgages?",
     options: [
       "I have a mortgage and know well what obligations I have entered into",
@@ -229,6 +245,7 @@ const questions = [
     question_id: 21,
     ask: "yes",
     question_type: "options",
+		subcategory: "familiarity_with_mortgage_types",
     question: "How familiar are you with an Interest-Only type of loan?",
     options: ["Not familiar", "Limitedly familiar", "Fully familiar"],
     option_values: ["none", "limited", "full"],
@@ -238,6 +255,7 @@ const questions = [
     question_id: 22,
     ask: "yes",
     question_type: "options",
+		subcategory: "familiarity_with_mortgage_types",
     question: "How familiar are you with an Annuity loan?",
     options: ["Not familiar", "Limitedly familiar","Fully familiar"],
     option_values: ["none", "limited", "full"],
@@ -247,6 +265,7 @@ const questions = [
     question_id: 23,
     ask: "yes",
     question_type: "options",
+		subcategory: "familiarity_with_mortgage_types",
     question: "How familiar are you with a Bank Savings type of loan?",
     options: ["Not familiar", "Limitedly familiar", "Fully familiar"],
     option_values: ["none", "limited", "full"],
@@ -256,6 +275,7 @@ const questions = [
     question_id: 24,
     ask: "yes",
     question_type: "options",
+		subcategory: "familiarity_with_mortgage_types",
     question: "How familiar are you with an Invesments type of loan?",
     options: ["Not familiar", "Limitedly familiar", "Fully familiar"],
     option_values: ["none", "limited", "full"],
@@ -265,6 +285,7 @@ const questions = [
     question_id: 25,
     ask: "yes",
     question_type: "options",
+		subcategory: "familiarity_with_mortgage_types",
     question: "How familiar are you with an Life type of loan?",
     options: ["Not familiar", "Limitedly familiar", "Fully familiar"],
     option_values: ["none", "limited", "full"],
@@ -274,6 +295,7 @@ const questions = [
     question_id: 26,
     ask: "yes",
     question_type: "options",
+		subcategory: "familiarity_with_mortgage_types",
     question: "How familiar are you with a Linear loan?",
     options: ["Not familiar", "Limitedly familiar", "Fully familiar"],
     option_values: ["none", "limited", "full"],
@@ -283,6 +305,7 @@ const questions = [
     question_id: 27,
     ask: "yes",
     question_type: "options",
+		subcategory: "income_sufficient_for_lifestyle",
     question:
       "To what extent is your current income sufficient for your lifestyle?",
     options: [
@@ -302,6 +325,7 @@ const questions = [
     question_id: 28,
     ask: "yes",
     question_type: "options",
+		subcategory: "expect_income_develop",
     question:
       "How do you expect your income to develop in the following years?",
     options: [
@@ -321,6 +345,7 @@ const questions = [
     question_id: 29,
     ask: "yes",
     question_type: "numberInput",
+		subcategory: "max_amount_net_mortgage_costs",
     question:
       "What is the maximum monthly net mortgage cost you are willing to pay?",
   },
@@ -328,6 +353,7 @@ const questions = [
     question_id: 30,
     ask: "yes",
     question_type: "options",
+		subcategory: "saving_goals",
     question:
       "Do you have a savings goal for a significant rainy-day fund? (at least 6 times the size of the mortgage)",
     options: ["Yes", "No"],
@@ -337,6 +363,7 @@ const questions = [
     question_id: 31,
     ask: "yes",
     question_type: "options",
+		subcategory: "saving_goals",
     question: "Do you have a savings goal for vacations and travel?",
     options: ["Yes", "No"],
     yes_value: "vacationsTravel",
@@ -345,6 +372,7 @@ const questions = [
     question_id: 32,
     ask: "yes",
     question_type: "options",
+		subcategory: "saving_goals",
     question:
       "Do you have a savings goal for home maintenance and significant renovations?",
     options: ["Yes", "No"],
@@ -354,6 +382,7 @@ const questions = [
     question_id: 33,
     ask: "yes",
     question_type: "options",
+		subcategory: "saving_goals",
     question: "Do you have a savings goal for retirement supplementation?",
     options: ["Yes", "No"],
     yes_value: "retirement",
@@ -362,6 +391,7 @@ const questions = [
     question_id: 34,
     ask: "yes",
     question_type: "options",
+		subcategory: "saving_goals",
     question:
       "Do you have a savings goal for other consumer purchases such as a car?",
     options: ["Yes", "No"],
@@ -371,6 +401,7 @@ const questions = [
     question_id: 35,
     ask: "yes",
     question_type: "numberInput",
+		subcategory: "saving_contribution",
     question:
       "What is the amount you are willing to contribute from your current savings as a downpayment to your mortgage?",
   },
@@ -378,6 +409,7 @@ const questions = [
         question_id: 36, 
         ask: "yes",
         question_type: "options",
+		    subcategory: "certainty_expenses_not_increase",
         question: "How long do you want to have the certanty that your expenses will not increase?", 
         options: [
             "1 year",
@@ -393,6 +425,7 @@ const questions = [
         question_id: 37, 
         ask: "yes",
         question_type: "options",
+		    subcategory: "partner_pass_away_during_mortgage",
         question: "Will you work more to supplement your income if your partner passes away during the mortgage term?", 
         options: ["Yes", "No"],
         yes_value: "supplement", 
@@ -401,6 +434,7 @@ const questions = [
         question_id: 38, 
         ask: "yes",
         question_type: "options",
+	      subcategory: "partner_pass_away_during_mortgage",
         question: "Will you use savings to supplement your income if your partner passes away during the mortgage term?", 
         options: ["Yes", "No"],
         yes_value: "savingsSupplement", 
@@ -409,6 +443,7 @@ const questions = [
         question_id: 39, 
         ask: "yes",
         question_type: "options",
+		    subcategory: "partner_pass_away_during_mortgage",
         question: "Do you have an insurance for if your partner passes away during the mortgage term?", 
         options: ["Yes", "No"],
         yes_value: "insurance", 
@@ -417,6 +452,7 @@ const questions = [
         question_id: 40, 
         ask: "yes",
         question_type: "options",
+		    subcategory: "partner_pass_away_during_mortgage",
         question: "Will you reduce your consumer expenses if your partner passes away during the mortgage term?", 
         options: ["Yes", "No"],
         yes_value: "reduceExpenses", 
@@ -425,6 +461,7 @@ const questions = [
         question_id: 41, 
         ask: "yes",
         question_type: "options",
+		    subcategory: "partner_pass_away_during_mortgage",
         question: "Do you want to insure yourself in case your partner passes away during the mortgage term?", 
         options: ["Yes", "No"],
         yes_value: "exploreInsurance", 
@@ -433,6 +470,7 @@ const questions = [
         question_id: 42, 
         ask: "yes",
         question_type: "options",
+        subcategory: "partner_pass_away_during_mortgage",
         question: "Do you have another plan if your partner passes away during the mortgage term?", 
         options: ["Yes", "No"],
         yes_value: "otherPlan", 
@@ -441,6 +479,7 @@ const questions = [
         question_id: 43, 
         ask: "yes",
         question_type: "options",
+	      subcategory: "become_disabled_during_mortgage",
         question: "Will your partner work more to supplement your income if you become disabled during the mortgage term?", 
         options: ["Yes", "No"],
         yes_value: "partnerWorks", 
@@ -449,6 +488,8 @@ const questions = [
         question_id: 44, 
         ask: "yes",
         question_type: "options",
+	
+		subcategory: "become_disabled_during_mortgage",
         question: "Will you use savings to supplement your income if you become disabled during the mortgage term?", 
         options: ["Yes", "No"],
         yes_value: "savingsSupplement", 
@@ -457,6 +498,8 @@ const questions = [
         question_id: 45, 
         ask: "yes",
         question_type: "options",
+	
+		subcategory: "become_disabled_during_mortgage",
         question: "Do you have an insurance for if you become disabled during the mortgage term?", 
         options: ["Yes", "No"],
         yes_value: "insurance", 
@@ -465,6 +508,8 @@ const questions = [
         question_id: 46, 
         ask: "yes",
         question_type: "options",
+	
+		subcategory: "become_disabled_during_mortgage",
         question: "Will you reduce your consumer expenses if you become disabled during the mortgage term?", 
         options: ["Yes", "No"],
         yes_value: "reduceExpenses", 
@@ -473,6 +518,8 @@ const questions = [
         question_id: 47, 
         ask: "yes",
         question_type: "options",
+	
+		subcategory: "become_disabled_during_mortgage",
         question: "Do you want to insure yourself in case you become disabled during the mortgage term?", 
         options: ["Yes", "No"],
         yes_value: "exploreInsurance", 
@@ -481,6 +528,8 @@ const questions = [
         question_id: 48, 
         ask: "yes",
         question_type: "options",
+	
+		subcategory: "become_disabled_during_mortgage",
         question: "Do you have another plan if you become disabled during the mortgage term?", 
         options: ["Yes", "No"],
         yes_value: "otherPlan", 
@@ -489,6 +538,8 @@ const questions = [
         question_id: 49, 
         ask: "yes",
         question_type: "options",
+	
+		subcategory: "become_unemployed_during_mortgage",
         question: "Will your partner work more to supplement your income if you become unemployed during the mortgage term?", 
         options: ["Yes", "No"],
         yes_value: "partnerWorks", 
@@ -497,6 +548,8 @@ const questions = [
         question_id: 50, 
         ask: "yes",
         question_type: "options",
+	
+		subcategory: "become_unemployed_during_mortgage",
         question: "Will you use savings to supplement your income if you become unemployed during the mortgage term?", 
         options: ["Yes", "No"],
         yes_value: "savingsSupplement", 
@@ -505,6 +558,8 @@ const questions = [
         question_id: 51, 
         ask: "yes",
         question_type: "options",
+	
+		subcategory: "become_unemployed_during_mortgage",
         question: "Do you have an insurance for if you become unemployed during the mortgage term?", 
         options: ["Yes", "No"],
         yes_value: "insurance", 
@@ -513,6 +568,8 @@ const questions = [
         question_id: 52, 
         ask: "yes",
         question_type: "options",
+	
+		subcategory: "become_unemployed_during_mortgage",
         question: "Will you reduce your consumer expenses if you become unemployed during the mortgage term?", 
         options: ["Yes", "No"],
         yes_value: "reduceExpenses", 
@@ -521,6 +578,8 @@ const questions = [
         question_id: 53, 
         ask: "yes",
         question_type: "options",
+	
+		subcategory: "become_unemployed_during_mortgage",
         question: "Do you want to insure yourself in case you become unemployed during the mortgage term?", 
         options: ["Yes", "No"],
         yes_value: "exploreInsurance", 
@@ -529,6 +588,8 @@ const questions = [
         question_id: 54, 
         ask: "yes",
         question_type: "options",
+	
+		subcategory: "become_unemployed_during_mortgage",
         question: "Do you have another plan if you become unemployed during the mortgage term?", 
         options: ["Yes", "No"],
         yes_value: "otherPlan", 
@@ -537,6 +598,8 @@ const questions = [
         question_id: 55, 
         ask: "yes",
         question_type: "options",
+	
+		subcategory: "retirement_plan",
         question: "Do you think your mortgage will be fully paid off by the time you retire?", 
         options: ["Yes", "No"],
         yes_value: "fullyPaid", 
@@ -545,6 +608,8 @@ const questions = [
         question_id: 56, 
         ask: "yes",
         question_type: "options",
+	
+		subcategory: "retirement_plan",
         question: "Will you use savings to supplement your income when you retire?", 
         options: ["Yes", "No"],
         yes_value: "savingsSupplement", 
@@ -553,6 +618,8 @@ const questions = [
         question_id: 57, 
         ask: "yes",
         question_type: "options",
+	
+		subcategory: "retirement_plan",
         question: "Do you have an insurance for your mortgage payments when you retire?", 
         options: ["Yes", "No"],
         yes_value: "insurance", 
@@ -561,6 +628,8 @@ const questions = [
         question_id: 58, 
         ask: "yes",
         question_type: "options",
+	
+		subcategory: "retirement_plan",
         question: "Will you reduce your consumer expenses when you retire?", 
         options: ["Yes", "No"],
         yes_value: "reduceExpenses", 
@@ -569,6 +638,8 @@ const questions = [
         question_id: 59, 
         ask: "yes",
         question_type: "options",
+	
+		subcategory: "retirement_plan",
         question: "Do you want to insure yourself in case you retire with mortgage expenses?", 
         options: ["Yes", "No"],
         yes_value: "exploreInsurance", 
@@ -577,6 +648,8 @@ const questions = [
         question_id: 60, 
         ask: "yes",
         question_type: "options",
+	
+		subcategory: "retirement_plan",
         question: "Do you have another plan if you retire with mortgage expenses?", 
         options: ["Yes", "No"],
         yes_value: "otherPlan", 

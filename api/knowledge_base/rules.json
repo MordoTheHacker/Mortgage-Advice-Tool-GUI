@@ -1,0 +1,146 @@
+{
+    "rules": [
+        {
+            "if": { "path": "persons.length", "operator": "==", "value": 1 },
+            "then": [
+                {
+                    "path": "ui_questions_shown.owner",
+                    "value": false
+                },
+                {
+                    "path": "ui_questions_shown.incomeToInclude",
+                    "value": false
+                },
+                {
+                    "path": "ui_questions_shown.partner_pass_away",
+                    "value": false
+                },
+                {
+                    "path": "ui_questions_shown.partner_disabled",
+                    "value": false
+                },
+                {
+                    "path": "ui_questions_shown.objective_unemployed_partner",
+                    "value": false
+                },
+                {
+                    "path": "ui_questions_shown.partner_pass_away_during_mortgage",
+                    "value": false
+                }
+            ],
+            "else": [
+                {
+                    "path": "ui_questions_shown.owner",
+                    "value": true
+                },
+                {
+                    "path": "ui_questions_shown.income_to_include",
+                    "value": true
+                },
+                {
+                    "path": "ui_questions_shown.partner_pass_away",
+                    "value": true
+                },
+                {
+                    "path": "ui_questions_shown.partner_disabled",
+                    "value": true
+                },
+                {
+                    "path": "ui_questions_shown.objective_unemployed_partner",
+                    "value": true
+                },
+                {
+                    "path": "ui_questions_shown.partner_pass_away_during_mortgage",
+                    "value": true
+                }
+            ]
+        },
+        {
+            "if": {
+                "path": "objective.situation",
+                "operator": "==",
+                "value": "cashInSurplusValue"
+            },
+            "then": [
+                {
+                    "path": "ui_questions_shown.income_to_include",
+                    "value": false
+                },
+                {
+                    "path": "ui_questions_shown.change_mortgage_preference",
+                    "value": false
+                }
+            ],
+            "else": [
+                {
+                    "path": "ui_questions_shown.income_to_include",
+                    "value": true
+                },
+                {
+                    "path": "ui_questions_shown.change_mortgage_preference",
+                    "value": true
+                }
+            ]
+        },
+        {
+            "if": [
+                {
+                    "path": "objective.change_mortgage_preference",
+                    "operator": "==",
+                    "value": "lowInitialCostIncreasingExpenses"
+                },
+                {
+                    "path": "knowledge_experience.familiarity_with_mortgage_types.annuityLoan",
+                    "operator": "!=",
+                    "value": "none"
+                }
+            ],
+            "then": [
+                {
+                    "path": "advice_report_texts.recommended_mortgage_type",
+                    "value": "annuityLoan"
+                }
+            ]
+        },
+        {
+            "if": [
+                {
+                    "path": "objective.change_mortgage_preference",
+                    "operator": "==",
+                    "value": "stableNetMortgageExpenses"
+                },
+                {
+                    "path": "knowledge_experience.familiarity_with_mortgage_types.interestOnlyLoan",
+                    "operator": "!=",
+                    "value": "none"
+                }
+            ],
+            "then": [
+                {
+                    "path": "advice_report_texts.recommended_mortgage_type",
+                    "value": "interestOnlyLoan"
+                }
+            ]
+        },
+        {
+            "if": [
+                {
+                    "path": "objective.change_mortgage_preference",
+                    "operator": "==",
+                    "value": "highInitialCostDecreasingExpenses"
+                },
+                {
+                    "path": "knowledge_experience.familiarity_with_mortgage_types.linearLoan",
+                    "operator": "!=",
+                    "value": "none"
+                }
+            ],
+            "then": [
+                {
+                    "path": "advice_report_texts.recommended_mortgage_type",
+                    "value": "linearLoan"
+                }
+            ]
+        }
+    ]
+}

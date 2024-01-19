@@ -1,0 +1,308 @@
+{
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+        "persons": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "birthdate": { "type": "date" },
+                    "income": { "type": "number" }
+                }
+            }
+        },
+        "objective": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "situation": {
+                    "type": "string",
+                    "enum": [
+                        "existingHousePurchase",
+                        "houseRenovation",
+                        "mortgageRefinance",
+                        "currentSituationEvaluation",
+                        "newConstructionHousePurchase",
+                        "postSeperationHouseContinuance",
+                        "cashInSurplusValue"
+                    ]
+                },
+                "owner": {
+                    "type": "string",
+                    "enum": ["partner1", "partner2", "both"]
+                },
+                "income_to_include": {
+                    "type": "string",
+                    "enum": ["partner1", "partner2", "both"]
+                },
+                "change_mortgage_preference": {
+                    "type": "string",
+                    "enum": [
+                        "lowInitialCostIncreasingExpenses",
+                        "stableNetMortgageExpenses",
+                        "highInitialCostDecreasingExpenses"
+                    ]
+                },
+                "mortgage_important_features": {
+                    "type": "array",
+                    "uniqueItems": true,
+                    "items": {
+                        "type": "string",
+                        "enum": [
+                            "extendedQuoteValidity",
+                            "postSigningRateDecreaseBenefit",
+                            "noChargeQuoteCancellation",
+                            "penaltyFreeRepaymentOver10Percent",
+                            "mortgageInterestTransferability",
+                            "automaticRateReductionOnRepayment"
+                        ]
+                    }
+                },
+                "partner_pass_away": {
+                    "type": "string",
+                    "enum": [
+                        "liveWithoutMortgageExpenses",
+                        "continueLivingInProperty",
+                        "propertySale"
+                    ]
+                },
+                "partner_disabled": {
+                    "type": "string",
+                    "enum": ["continueLivingInProperty", "propertySale"]
+                },
+                "objective_unemployed_partner": {
+                    "type": "string",
+                    "enum": ["continueLivingInProperty", "propertySale"]
+                },
+                "objective_retired": {
+                    "type": "string",
+                    "enum": ["continueLivingInProperty", "propertySale"]
+                }
+            }
+        },
+
+        "knowledge_experience": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "general_mortgage_experiance": {
+                    "type": "string",
+                    "enum": [
+                        "fullCurrentExperiance",
+                        "noCurrentExperiance",
+                        "pastExperiance",
+                        "noExperiance",
+                        "workRelatedExpereiance"
+                    ]
+                },
+                "deductibility": { "type": "object" },
+                "experience_with_mortgage": { "type": "string" },
+                "decreasing_montly_costs_graph": { "type": "string" },
+                "familiarity_with_mortgage_types": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "interestOnlyLoan": {
+                            "type": "string",
+                            "enum": ["none", "limited", "full"],
+                            "default": "none"
+                        },
+                        "annuityLoan": {
+                            "type": "string",
+                            "enum": ["none", "limited", "full"],
+                            "default": "none"
+                        },
+                        "bankSavingsLoan": {
+                            "type": "string",
+                            "enum": ["none", "limited", "full"],
+                            "default": "none"
+                        },
+                        "investmentsLoan": {
+                            "type": "string",
+                            "enum": ["none", "limited", "full"],
+                            "default": "none"
+                        },
+                        "lifeLoan": {
+                            "type": "string",
+                            "enum": ["none", "limited", "full"],
+                            "default": "none"
+                        },
+                        "linearLoan": {
+                            "type": "string",
+                            "enum": ["none", "limited", "full"],
+                            "default": "none"
+                        }
+                    }
+                },
+                "annuity_mortgage": { "type": "string" },
+                "familiarity_with_financial_terms": { "type": "object" },
+                "provision_employer": { "type": "object" }
+            }
+        },
+        "financial_position": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "income_sufficient_for_lifestyle": {
+                    "type": "string",
+                    "enum": [
+                        "largeIncome",
+                        "goodIncome",
+                        "zeroSavings",
+                        "insufficientIncome"
+                    ]
+                },
+                "expect_income_develop": {
+                    "type": "string",
+                    "enum": [
+                        "slightIncrease",
+                        "significantIncrease",
+                        "decrease",
+                        "noChange"
+                    ]
+                },
+                "max_amount_net_mortgage_costs": { "type": "number" },
+                "changes_in_personal_situation": { "type": "array" },
+                "saving_goals": {
+                    "type": "array",
+                    "uniqueItems": true,
+                    "items": {
+                        "type": "string",
+                        "enum": [
+                            "buffer",
+                            "vacationsTravel",
+                            "renovation",
+                            "retirement",
+                            "largePurchases"
+                        ]
+                    }
+                },
+                "saving_contribution": { "type": "number" }
+            }
+        },
+        "risk_appetite": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "certainty_expenses_not_increase": { "type": "number" },
+                "partner_pass_away_during_mortgage": {
+                    "type": "array",
+                    "enum": [
+                        "supplement",
+                        "savingsSupplement",
+                        "insurance",
+                        "reduceExpenses",
+                        "exploreInsurance",
+                        "otherPlan"
+                    ]
+                },
+                "become_disabled_during_mortgage": {
+                    "type": "array",
+                    "enum": [
+                        "partnerWorks",
+                        "savingsSupplement",
+                        "insurance",
+                        "reduceExpenses",
+                        "exploreInsurance",
+                        "otherPlan"
+                    ]
+                },
+                "become_unemployed_during_mortgage": {
+                    "type": "array",
+                    "enum": [
+                        "partnerWorks",
+                        "savingsSupplement",
+                        "insurance",
+                        "reduceExpenses",
+                        "exploreInsurance",
+                        "otherPlan"
+                    ]
+                },
+                "retirement_plan": {
+                    "type": "array",
+                    "enum": [
+                        "fullyPaid",
+                        "savingsSupplement",
+                        "insurance",
+                        "reduceExpenses",
+                        "exploreInsurance",
+                        "otherPlan"
+                    ]
+                }
+            }
+        },
+        "ui_questions_shown": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "hasPartner": { "type": "boolean" },
+                "income": { "type": "boolean" },
+                "birthdate": { "type": "boolean" },
+                "partnerIncome": { "type": "boolean" },
+                "partnerBirthdate": { "type": "boolean" },
+
+                "situation": { "type": "boolean" },
+                "owner": { "type": "boolean" },
+                "income_to_include": { "type": "boolean" },
+                "change_mortgage_preference": { "type": "boolean" },
+                "mortgage_important_features": { "type": "boolean" },
+                "partner_pass_away": { "type": "boolean" },
+                "partner_disabled": { "type": "boolean" },
+                "objective_unemployed_partner": { "type": "boolean" },
+                "objective_retired": { "type": "boolean" },
+
+                "general_mortgage_experiance": { "type": "boolean" },
+                "deductibility": { "type": "boolean" },
+                "experience_with_mortgage": { "type": "boolean" },
+                "decreasing_montly_costs_graph": { "type": "boolean" },
+                "familiarity_with_mortgage_types": {
+                    "type": "boolean"
+                },
+                "annuity_mortgage": { "type": "boolean" },
+                "familiarity_with_financial_terms": {
+                    "type": "boolean"
+                },
+                "provision_employer": { "type": "boolean" },
+
+                "income_sufficient_for_lifestyle": {
+                    "type": "boolean"
+                },
+                "expect_income_develop": { "type": "boolean" },
+                "max_amount_net_mortgage_costs": { "type": "boolean" },
+                "changes_in_personal_situation": { "type": "boolean" },
+                "saving_goals": { "type": "boolean" },
+                "saving_contribution": { "type": "boolean" },
+
+                "certainty_expenses_not_increase": {
+                    "type": "boolean"
+                },
+                "partner_pass_away_during_mortgage": {
+                    "type": "boolean"
+                },
+                "become_disabled_during_mortgage": {
+                    "type": "boolean"
+                },
+                "become_unemployed_during_mortgage": {
+                    "type": "boolean"
+                },
+                "retirement_plan": { "type": "boolean" }
+            }
+        },
+        "advice_report_texts": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "objective": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "situation": { "type": "string" }
+                    }
+                },
+                "recommended_mortgage_type": { "type": "string" }
+            }
+        }
+    }
+}

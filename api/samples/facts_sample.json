@@ -1,0 +1,19 @@
+{
+    "persons": [
+        {
+            "income": 100000,
+            "birthdate": "01-01-2000"
+        }
+    ],
+    "objective": {
+        "situation": "cashInSurplusValue",
+        "owner": ["you", "partner"],
+        "incomeToInclude": ["you", "partner"],
+        "change_mortgage_preference": "lowInitialCostIncreasingExpenses"
+    },
+    "knowledge_experience": {
+        "familiarity_with_mortgage_types": {
+            "annuityLoan": "limited"
+        }
+    }
+}
