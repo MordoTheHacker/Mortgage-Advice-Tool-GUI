@@ -89,7 +89,7 @@ function updateProgressBar() {
 
 async function pingInferenceEngine(){
     // inference engine API ping
-    const apiUrl = '/infer'; // put link to hosted api server
+    const apiUrl = 'https://mortgage-advice-netherlands.com/infer'; // put link to hosted api server
 
     try {
         const response = await fetch(apiUrl, {
