@@ -89,7 +89,7 @@ function updateProgressBar() {
 
 async function pingInferenceEngine(){
     // inference engine API ping
-    const apiUrl = 'http://127.0.0.1:8000/infer'; // put link to hosted api server
+    const apiUrl = '/infer'; // put link to hosted api server
 
     try {
         const response = await fetch(apiUrl, {
