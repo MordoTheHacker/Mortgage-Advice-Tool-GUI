@@ -1,7 +1,7 @@
 {
     "rules": [
         {
-            "if": { "path": "persons.length", "operator": "==", "value": 1 },
+            "if": { "path": "persons[1].income", "operator": "==", "value": null },
             "then": [
                 {
                     "path": "ui_questions_shown.owner",
