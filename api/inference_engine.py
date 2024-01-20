@@ -23,10 +23,13 @@ class InferenceEngine:
 
         current_value = input_data
         for key in path.split("."):
-            if not isinstance(current_value, dict):
+            if isinstance(current_value, list):
+                current_value = current_value[int(key)]
+            elif isinstance(current_value, dict):
+                current_value = current_value.get(key, None)
+            else:
                 return operator == "not exists"
 
-            current_value = current_value.get(key, None)
             if current_value is None:
                 return operator == "not exists"
 
@@ -60,8 +63,7 @@ class InferenceEngine:
         current_value = input_data
         keys = path.split(".")
         for key in keys[:-1]:
-            current_value = current_value.setdefault(key, {})  # check if the key
-            # exists in the dictionary
+            current_value = current_value.setdefault(key, {})
 
         last_key = keys[-1]
         if operator == "=" or operator is None:

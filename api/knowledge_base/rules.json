@@ -1,14 +1,17 @@
 {
     "rules": [
         {
-            "if": { "path": "ui_questions_shown.partnerIncome", "operator": "==", "value": false },
+            "if": {
+                "path": "persons.1.income",
+                "operator": "not exists"
+            },
             "then": [
                 {
                     "path": "ui_questions_shown.owner",
                     "value": false
                 },
                 {
-                    "path": "ui_questions_shown.incomeToInclude",
+                    "path": "ui_questions_shown.income_to_include",
                     "value": false
                 },
                 {
@@ -72,10 +75,6 @@
                 }
             ],
             "else": [
-                {
-                    "path": "ui_questions_shown.income_to_include",
-                    "value": true
-                },
                 {
                     "path": "ui_questions_shown.change_mortgage_preference",
                     "value": true
