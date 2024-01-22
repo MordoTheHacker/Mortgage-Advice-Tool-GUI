@@ -23,7 +23,7 @@ async function pingAdviceReportGenerator(){
         const iframe = document.createElement('iframe');
         iframe.src = url;
         iframe.width = '100%';
-        iframe.height = '600px';
+        iframe.height = '100%';
 
         // Append the iframe to the desired container in your HTML
         const container = document.getElementById('report'); 
